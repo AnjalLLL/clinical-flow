@@ -2,218 +2,255 @@
  "cost_per_encounter": [
   {
    "encounter_class": "inpatient",
-   "encounters": 5,
-   "avg_claim_cost": 11001.6,
-   "avg_patient_cost": 3067.21,
-   "avg_duration_min": 1464.0
+   "encounters": 172,
+   "avg_claim_cost": 43383.92,
+   "avg_patient_cost": 3208.57,
+   "avg_duration_min": 7732.1
   },
   {
    "encounter_class": "snf",
-   "encounters": 3,
-   "avg_claim_cost": 9270.5,
-   "avg_patient_cost": 3858.44,
-   "avg_duration_min": 15375.0
-  },
-  {
-   "encounter_class": "ambulatory",
-   "encounters": 366,
-   "avg_claim_cost": 5868.89,
-   "avg_patient_cost": 2116.15,
-   "avg_duration_min": 64.9
+   "encounters": 19,
+   "avg_claim_cost": 13245.25,
+   "avg_patient_cost": 3604.12,
+   "avg_duration_min": 24722.4
   },
   {
    "encounter_class": "hospice",
-   "encounters": 1,
-   "avg_claim_cost": 5314.33,
-   "avg_patient_cost": 1062.87,
-   "avg_duration_min": 10560.0
+   "encounters": 18,
+   "avg_claim_cost": 11689.46,
+   "avg_patient_cost": 2056.25,
+   "avg_duration_min": 35477.9
   },
   {
    "encounter_class": "emergency",
-   "encounters": 20,
-   "avg_claim_cost": 5263.95,
-   "avg_patient_cost": 1283.28,
-   "avg_duration_min": 71.0
+   "encounters": 247,
+   "avg_claim_cost": 3997.25,
+   "avg_patient_cost": 1193.56,
+   "avg_duration_min": 543.7
+  },
+  {
+   "encounter_class": "ambulatory",
+   "encounters": 3147,
+   "avg_claim_cost": 3688.86,
+   "avg_patient_cost": 1006.53,
+   "avg_duration_min": 101.0
   },
   {
    "encounter_class": "outpatient",
-   "encounters": 66,
-   "avg_claim_cost": 824.16,
-   "avg_patient_cost": 547.96,
-   "avg_duration_min": 23.9
-  },
-  {
-   "encounter_class": "wellness",
-   "encounters": 166,
-   "avg_claim_cost": 738.31,
-   "avg_patient_cost": 525.33,
-   "avg_duration_min": 33.3
+   "encounters": 1062,
+   "avg_claim_cost": 1220.52,
+   "avg_patient_cost": 469.66,
+   "avg_duration_min": 28.5
   },
   {
    "encounter_class": "urgentcare",
-   "encounters": 7,
-   "avg_claim_cost": 620.23,
-   "avg_patient_cost": 221.8,
-   "avg_duration_min": 29.5
+   "encounters": 527,
+   "avg_claim_cost": 1010.61,
+   "avg_patient_cost": 268.54,
+   "avg_duration_min": 37.8
+  },
+  {
+   "encounter_class": "wellness",
+   "encounters": 1511,
+   "avg_claim_cost": 804.8,
+   "avg_patient_cost": 460.94,
+   "avg_duration_min": 37.5
+  },
+  {
+   "encounter_class": "home",
+   "encounters": 31,
+   "avg_claim_cost": 622.55,
+   "avg_patient_cost": 124.51,
+   "avg_duration_min": 15.0
   },
   {
    "encounter_class": "virtual",
-   "encounters": 1,
-   "avg_claim_cost": 143.1,
-   "avg_patient_cost": 42.93,
-   "avg_duration_min": 60.0
+   "encounters": 28,
+   "avg_claim_cost": 372.72,
+   "avg_patient_cost": 58.83,
+   "avg_duration_min": 23.2
   }
  ],
  "med_trends": [
   {
    "year": 2022,
-   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
-   "prescriptions": 4,
-   "total_cost": 519.76
+   "description": "insulin isophane  human 70 UNT/ML / insulin  regular  human 30 UNT/ML Injectable Suspension [Humulin]",
+   "prescriptions": 101,
+   "total_cost": 25856.11
   },
   {
    "year": 2022,
-   "description": "Simvastatin 10 MG Oral Tablet",
-   "prescriptions": 2,
-   "total_cost": 9.0
+   "description": "lisinopril 10 MG Oral Tablet",
+   "prescriptions": 93,
+   "total_cost": 99.49
   },
   {
    "year": 2022,
-   "description": "Acetaminophen 325 MG Oral Tablet",
-   "prescriptions": 2,
-   "total_cost": 145.21
+   "description": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet",
+   "prescriptions": 85,
+   "total_cost": 442.53
   },
   {
    "year": 2022,
-   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
-   "prescriptions": 1,
-   "total_cost": 1.8
+   "description": "amLODIPine 2.5 MG Oral Tablet",
+   "prescriptions": 69,
+   "total_cost": 82.72
   },
   {
    "year": 2023,
-   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
-   "prescriptions": 4,
-   "total_cost": 519.76
+   "description": "insulin isophane  human 70 UNT/ML / insulin  regular  human 30 UNT/ML Injectable Suspension [Humulin]",
+   "prescriptions": 80,
+   "total_cost": 21891.02
   },
   {
    "year": 2023,
-   "description": "Simvastatin 10 MG Oral Tablet",
-   "prescriptions": 2,
-   "total_cost": 9.0
+   "description": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet",
+   "prescriptions": 69,
+   "total_cost": 451.07
   },
   {
    "year": 2023,
-   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
-   "prescriptions": 1,
-   "total_cost": 1.8
+   "description": "lisinopril 10 MG Oral Tablet",
+   "prescriptions": 68,
+   "total_cost": 76.74
   },
   {
    "year": 2023,
-   "description": "{7 (ethinyl estradiol 0.01 MG Oral Tablet) / 84 (ethinyl estradiol 0.03 MG / levonorgestrel 0.15 MG Oral Tablet) } Pack [Seasonique]",
-   "prescriptions": 1,
-   "total_cost": 5018.28
-  },
-  {
-   "year": 2023,
-   "description": "Acetaminophen 325 MG Oral Tablet",
-   "prescriptions": 1,
-   "total_cost": 60.3
+   "description": "amLODIPine 2.5 MG Oral Tablet",
+   "prescriptions": 65,
+   "total_cost": 83.8
   },
   {
    "year": 2024,
-   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
-   "prescriptions": 3,
-   "total_cost": 389.82
+   "description": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet",
+   "prescriptions": 73,
+   "total_cost": 407.32
   },
   {
    "year": 2024,
-   "description": "Simvastatin 10 MG Oral Tablet",
-   "prescriptions": 2,
-   "total_cost": 7.2
+   "description": "insulin isophane  human 70 UNT/ML / insulin  regular  human 30 UNT/ML Injectable Suspension [Humulin]",
+   "prescriptions": 68,
+   "total_cost": 18162.64
   },
   {
    "year": 2024,
-   "description": "Acetaminophen 325 MG Oral Tablet",
-   "prescriptions": 1,
-   "total_cost": 45.86
+   "description": "amLODIPine 2.5 MG Oral Tablet",
+   "prescriptions": 55,
+   "total_cost": 69.66
   },
   {
    "year": 2024,
-   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
-   "prescriptions": 1,
-   "total_cost": 0.9
+   "description": "lisinopril 10 MG Oral Tablet",
+   "prescriptions": 53,
+   "total_cost": 67.64
   },
   {
    "year": 2025,
-   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
-   "prescriptions": 3,
-   "total_cost": 4.58
+   "description": "insulin isophane  human 70 UNT/ML / insulin  regular  human 30 UNT/ML Injectable Suspension [Humulin]",
+   "prescriptions": 81,
+   "total_cost": 20343.92
   },
   {
    "year": 2025,
-   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
-   "prescriptions": 2,
-   "total_cost": 259.88
+   "description": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet",
+   "prescriptions": 79,
+   "total_cost": 463.86
   },
   {
    "year": 2025,
-   "description": "Simvastatin 10 MG Oral Tablet",
-   "prescriptions": 2,
-   "total_cost": 10.8
+   "description": "lisinopril 10 MG Oral Tablet",
+   "prescriptions": 71,
+   "total_cost": 84.02
   },
   {
    "year": 2025,
-   "description": "Acetaminophen 325 MG Oral Tablet",
-   "prescriptions": 1,
-   "total_cost": 45.86
+   "description": "amLODIPine 2.5 MG Oral Tablet",
+   "prescriptions": 68,
+   "total_cost": 86.12
   },
   {
    "year": 2026,
-   "description": "Acetaminophen 325 MG Oral Tablet",
-   "prescriptions": 4,
-   "total_cost": 440.24
+   "description": "insulin isophane  human 70 UNT/ML / insulin  regular  human 30 UNT/ML Injectable Suspension [Humulin]",
+   "prescriptions": 66,
+   "total_cost": 17594.57
   },
   {
    "year": 2026,
-   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
-   "prescriptions": 4,
-   "total_cost": 519.76
+   "description": "24 HR Metformin hydrochloride 500 MG Extended Release Oral Tablet",
+   "prescriptions": 65,
+   "total_cost": 275.82
   },
   {
    "year": 2026,
-   "description": "Simvastatin 10 MG Oral Tablet",
-   "prescriptions": 3,
-   "total_cost": 15.3
+   "description": "amLODIPine 2.5 MG Oral Tablet",
+   "prescriptions": 62,
+   "total_cost": 63.09
   },
   {
    "year": 2026,
-   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
-   "prescriptions": 2,
-   "total_cost": 1.36
+   "description": "lisinopril 10 MG Oral Tablet",
+   "prescriptions": 58,
+   "total_cost": 55.81
   }
  ],
  "readmission_30d": [
   {
-   "reason": "Sterilization requested (situation)",
-   "inpatient_stays": 2,
-   "readmissions": 0,
-   "readmission_rate_pct": 0.0
+   "reason": "Non-small cell carcinoma of lung  TNM stage 1 (disorder)",
+   "inpatient_stays": 72,
+   "readmissions": 18,
+   "readmission_rate_pct": 25.0
   },
   {
-   "reason": "Acute ST segment elevation myocardial infarction (disorder)",
-   "inpatient_stays": 1,
-   "readmissions": 0,
-   "readmission_rate_pct": 0.0
+   "reason": "Primary small cell malignant neoplasm of lung  TNM stage 1 (disorder)",
+   "inpatient_stays": 33,
+   "readmissions": 32,
+   "readmission_rate_pct": 97.0
+  },
+  {
+   "reason": "History of coronary artery bypass grafting (situation)",
+   "inpatient_stays": 13,
+   "readmissions": 6,
+   "readmission_rate_pct": 46.2
+  },
+  {
+   "reason": "Chronic congestive heart failure (disorder)",
+   "inpatient_stays": 10,
+   "readmissions": 1,
+   "readmission_rate_pct": 10.0
   },
   {
    "reason": "Sleep disorder (disorder)",
-   "inpatient_stays": 1,
+   "inpatient_stays": 7,
    "readmissions": 0,
    "readmission_rate_pct": 0.0
   },
   {
-   "reason": "Tubal pregnancy (disorder)",
-   "inpatient_stays": 1,
+   "reason": "Sterilization requested (situation)",
+   "inpatient_stays": 6,
+   "readmissions": 0,
+   "readmission_rate_pct": 0.0
+  },
+  {
+   "reason": "Appendicitis (disorder)",
+   "inpatient_stays": 5,
+   "readmissions": 0,
+   "readmission_rate_pct": 0.0
+  },
+  {
+   "reason": "Abnormal findings diagnostic imaging heart+coronary circulat (finding)",
+   "inpatient_stays": 5,
+   "readmissions": 4,
+   "readmission_rate_pct": 80.0
+  },
+  {
+   "reason": "Acute non-ST segment elevation myocardial infarction (disorder)",
+   "inpatient_stays": 4,
+   "readmissions": 0,
+   "readmission_rate_pct": 0.0
+  },
+  {
+   "reason": "Dependent drug abuse (disorder)",
+   "inpatient_stays": 4,
    "readmissions": 0,
    "readmission_rate_pct": 0.0
   }

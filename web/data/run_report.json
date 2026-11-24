@@ -1,45 +1,45 @@
 {
- "finished_at": "2026-11-24T16:40:55+00:00",
+ "finished_at": "2026-11-24T16:45:00+00:00",
  "timings_sec": {
-  "ingest": 0.0,
-  "silver": 4.22,
-  "gold": 1.78,
-  "quality": 1.16,
-  "warehouse": 0.06
+  "ingest": 4.58,
+  "silver": 6.18,
+  "gold": 2.98,
+  "quality": 1.54,
+  "warehouse": 0.14
  },
  "layer_stats": {
   "patients": {
-   "bronze": 15,
+   "bronze": 120,
    "quarantined": 0,
    "duplicates": 0,
-   "silver": 15
+   "silver": 120
   },
   "encounters": {
-   "bronze": 635,
+   "bronze": 6762,
    "quarantined": 0,
    "duplicates": 0,
-   "silver": 635
+   "silver": 6762
   },
   "conditions": {
-   "bronze": 400,
+   "bronze": 5088,
    "quarantined": 0,
    "duplicates": 0,
-   "silver": 400
+   "silver": 5088
   },
   "medications": {
-   "bronze": 151,
+   "bronze": 8054,
    "quarantined": 0,
-   "duplicates": 1,
-   "silver": 150
+   "duplicates": 11,
+   "silver": 8043
   }
  },
  "gold_row_counts": {
-  "dim_patient": 15,
-  "dim_date": 613,
-  "dim_condition": 93,
-  "fact_encounter": 635,
-  "fact_medication": 150,
-  "fact_condition": 400
+  "dim_patient": 120,
+  "dim_date": 4607,
+  "dim_condition": 200,
+  "fact_encounter": 6762,
+  "fact_medication": 8043,
+  "fact_condition": 5088
  },
  "quality": {
   "silver": {
