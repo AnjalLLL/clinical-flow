@@ -18,6 +18,9 @@ def upload(s3, ingest_date):
     keys = []
     for table in TABLES:
         key = f"{table}/ingest_date={ingest_date}/{table}.csv"
+        # a re-run on the same day must not pass on the previous run's validation result
+        s3.delete_object(Bucket=BUCKETS["bronze"], Key=f"{key}.manifest.json")
+        s3.delete_object(Bucket=BUCKETS["quarantine"], Key=key)
         s3.upload_file(str(RAW_DIR / f"{table}.csv"), BUCKETS["bronze"], key)
         keys.append(key)
     return keys
