@@ -39,9 +39,11 @@ Needs Python 3.11, Java 17 (for Spark) and Docker.
 ```bash
 make setup        # venv + dependencies
 make data         # download the Synthea CSVs
-make up           # start LocalStack
+make up           # start LocalStack, create buckets, deploy the upload-validator Lambda
 make run          # ingest to S3 → silver → gold → quality checks → DuckDB + queries
 make test         # pytest
+make bench        # Spark performance experiments -> docs/performance.md
+cd web && python3 -m http.server   # open the dashboard at http://localhost:8000
 ```
 
 No Docker? `make run-local` runs the same pipeline on `data/sample/` without S3.
@@ -55,6 +57,17 @@ No Docker? `make run-local` runs the same pipeline on `data/sample/` without S3.
 | Gold | `transforms/silver_to_gold.py` | Star schema with surrogate `date_key`, age groups, encounter duration |
 | Quality | `quality/checks.py` | Not-null, uniqueness, non-negative cost, referential integrity, and bronze = silver + quarantined + duplicates row reconciliation |
 | Warehouse | `warehouse/load_duckdb.py`, `sql/` | Loads gold into DuckDB and runs the analytics SQL (window functions, CTEs) |
+
+## Results (full Synthea sample, 120 patients)
+
+| Layer | Rows |
+|---|---|
+| Encounters bronze → silver | 6,762 → 6,762 (0 quarantined) |
+| Medications bronze → silver | 8,054 → 8,043 (11 duplicates removed) |
+| Data quality | 20 / 20 checks passed |
+
+Spark benchmark on 3.4M rows ([details](docs/performance.md)): parquet 18x faster than CSV, partition pruning
+reads 1 file / 1.8 MB instead of 16 files / 114 MB, broadcast join 1.7x faster than sort-merge.
 
 ## Tests and CI
 
@@ -70,8 +83,9 @@ Phase 1
 - [x] Gold star schema and DuckDB warehouse with analytics SQL
 - [x] Data quality gate and row-count reconciliation
 - [x] pytest suite and GitHub Actions CI
-- [ ] S3-triggered Lambda that validates uploads before processing
-- [ ] Performance notes: partition pruning, broadcast joins, CSV vs parquet
-- [ ] Dashboard on Vercel with in-browser SQL (DuckDB-WASM)
+- [x] S3-triggered Lambda that validates uploads before processing (manifest or quarantine, logs to CloudWatch)
+- [x] [Performance notes](docs/performance.md): parquet vs CSV, partition pruning, broadcast joins
+- [x] Static dashboard with in-browser SQL (DuckDB-WASM) in `web/`
+- [ ] Deploy the dashboard on Vercel
 
 Phase 2: Step Functions orchestration, Airflow DAG, Terraform, Java parity validator, Snowflake/Snowpark.
