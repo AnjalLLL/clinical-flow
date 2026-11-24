@@ -1,0 +1,166 @@
+{
+ "finished_at": "2026-11-24T16:40:55+00:00",
+ "timings_sec": {
+  "ingest": 0.0,
+  "silver": 4.22,
+  "gold": 1.78,
+  "quality": 1.16,
+  "warehouse": 0.06
+ },
+ "layer_stats": {
+  "patients": {
+   "bronze": 15,
+   "quarantined": 0,
+   "duplicates": 0,
+   "silver": 15
+  },
+  "encounters": {
+   "bronze": 635,
+   "quarantined": 0,
+   "duplicates": 0,
+   "silver": 635
+  },
+  "conditions": {
+   "bronze": 400,
+   "quarantined": 0,
+   "duplicates": 0,
+   "silver": 400
+  },
+  "medications": {
+   "bronze": 151,
+   "quarantined": 0,
+   "duplicates": 1,
+   "silver": 150
+  }
+ },
+ "gold_row_counts": {
+  "dim_patient": 15,
+  "dim_date": 613,
+  "dim_condition": 93,
+  "fact_encounter": 635,
+  "fact_medication": 150,
+  "fact_condition": 400
+ },
+ "quality": {
+  "silver": {
+   "patients": [
+    {
+     "check": "not_null:patient_id",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "unique:patient_id",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "row_count_reconciliation",
+     "failed_rows": 0,
+     "passed": true
+    }
+   ],
+   "encounters": [
+    {
+     "check": "not_null:encounter_id",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "unique:encounter_id",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "non_negative:total_claim_cost",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "references:encounters.patient_id->patients",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "row_count_reconciliation",
+     "failed_rows": 0,
+     "passed": true
+    }
+   ],
+   "conditions": [
+    {
+     "check": "not_null:code",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "references:conditions.patient_id->patients",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "row_count_reconciliation",
+     "failed_rows": 0,
+     "passed": true
+    }
+   ],
+   "medications": [
+    {
+     "check": "non_negative:total_cost",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "references:medications.encounter_id->encounters",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "row_count_reconciliation",
+     "failed_rows": 0,
+     "passed": true
+    }
+   ]
+  },
+  "gold": {
+   "dim_patient": [
+    {
+     "check": "unique:patient_id",
+     "failed_rows": 0,
+     "passed": true
+    }
+   ],
+   "dim_date": [
+    {
+     "check": "unique:date_key",
+     "failed_rows": 0,
+     "passed": true
+    }
+   ],
+   "fact_encounter": [
+    {
+     "check": "unique:encounter_id",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "references:fact_encounter->dim_patient",
+     "failed_rows": 0,
+     "passed": true
+    },
+    {
+     "check": "references:fact_encounter->dim_date",
+     "failed_rows": 0,
+     "passed": true
+    }
+   ],
+   "fact_medication": [
+    {
+     "check": "references:fact_medication->dim_date",
+     "failed_rows": 0,
+     "passed": true
+    }
+   ]
+  }
+ }
+}

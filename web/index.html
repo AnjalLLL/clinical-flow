@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClinicalFlow</title>
+<meta name="description" content="Healthcare data pipeline: PySpark bronze/silver/gold, data quality gate, DuckDB warehouse, in-browser SQL.">
+<style>
+  :root { --bg:#f7f8fa; --card:#fff; --ink:#18202b; --muted:#5b6675; --line:#e3e7ec; --accent:#1764d8; --ok:#1d8a4e; --bad:#c2352b; --on-accent:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f141a; --card:#171e27; --ink:#e7ecf2; --muted:#9aa6b4; --line:#26303c; --accent:#5b9cff; --ok:#4cc38a; --bad:#ff6b5f; --on-accent:#0f141a; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+  header, main { max-width:1100px; margin:0 auto; padding:0 16px; }
+  header { padding-top:32px; }
+  h1 { margin:0; font-size:28px; }
+  h2 { font-size:18px; margin:0 0 12px; }
+  p.lead { color:var(--muted); margin:6px 0 0; max-width:760px; }
+  nav a { color:var(--accent); margin-right:16px; text-decoration:none; font-weight:600; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px; margin:20px 0; }
+  .grid { display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); }
+  .stat { border:1px solid var(--line); border-radius:10px; padding:12px; }
+  .stat b { display:block; font-size:22px; }
+  .stat span { color:var(--muted); font-size:13px; }
+  .flow { display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:13px; }
+  .flow div { border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  .flow i { color:var(--muted); font-style:normal; }
+  .charts { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); }
+  .scroll { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:13px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  th { color:var(--muted); font-weight:600; }
+  .pass { color:var(--ok); font-weight:600; } .fail { color:var(--bad); font-weight:600; }
+  textarea { width:100%; min-height:110px; font:13px ui-monospace,Menlo,monospace; padding:10px; border-radius:8px;
+             border:1px solid var(--line); background:var(--bg); color:var(--ink); }
+  button { font:inherit; padding:8px 14px; border-radius:8px; border:1px solid var(--line); background:var(--bg); color:var(--ink); cursor:pointer; margin:8px 8px 0 0; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+  #sql-status { color:var(--muted); font-size:13px; }
+  footer { color:var(--muted); font-size:13px; padding:8px 0 40px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>ClinicalFlow</h1>
+  <p class="lead">A healthcare data pipeline on synthetic patient records (Synthea). PySpark moves data through bronze, silver and gold
+    layers, a data quality gate checks every load, and a DuckDB warehouse answers the questions below. The SQL box at the bottom
+    runs DuckDB in your browser against the same gold tables.</p>
+  <nav><a href="#run">Last run</a><a href="#insights">Insights</a><a href="#quality">Data quality</a><a href="#sql">SQL playground</a>
+    <a href="https://github.com/AnjalLLL/clinical-flow">GitHub</a></nav>
+</header>
+<main>
+  <section id="run">
+    <h2>Last pipeline run</h2>
+    <div class="flow">
+      <div>CSV → S3 bronze</div><i>→</i><div>Lambda header check</div><i>→</i><div>Spark silver<br><small>types · dedupe · quarantine</small></div>
+      <i>→</i><div>Spark gold<br><small>star schema</small></div><i>→</i><div>Quality gate</div><i>→</i><div>DuckDB</div><i>→</i><div>This page</div>
+    </div>
+    <p id="run-meta" class="lead"></p>
+    <div class="grid" id="layer-stats"></div>
+  </section>
+
+  <section id="insights">
+    <h2>Insights</h2>
+    <div class="charts">
+      <div><h3>Average claim cost by encounter type</h3><canvas id="cost-chart"></canvas></div>
+      <div><h3>30-day inpatient readmission rate</h3><canvas id="readmit-chart"></canvas></div>
+      <div><h3>Top medications, prescriptions per year</h3><canvas id="med-chart"></canvas></div>
+    </div>
+  </section>
+
+  <section id="quality">
+    <h2>Data quality checks</h2>
+    <div class="scroll"><table id="dq-table"><thead><tr><th>Layer</th><th>Table</th><th>Check</th><th>Failed rows</th><th>Result</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section id="sql">
+    <h2>SQL playground</h2>
+    <p class="lead">Tables: dim_patient, dim_date, dim_condition, fact_encounter, fact_medication, fact_condition.</p>
+    <textarea id="sql-input" spellcheck="false">SELECT encounter_class, COUNT(*) AS encounters, ROUND(AVG(total_claim_cost), 2) AS avg_cost
+FROM fact_encounter GROUP BY 1 ORDER BY avg_cost DESC;</textarea>
+    <div>
+      <button class="primary" id="sql-run">Run</button>
+      <button data-sql="SELECT p.age_group, COUNT(*) AS encounters FROM fact_encounter e JOIN dim_patient p USING (patient_id) GROUP BY 1 ORDER BY 1;">Encounters by age group</button>
+      <button data-sql="SELECT c.description, COUNT(*) AS patients FROM fact_condition f JOIN dim_condition c USING (code) GROUP BY 1 ORDER BY 2 DESC LIMIT 10;">Most common conditions</button>
+      <button data-sql="SELECT d.year, ROUND(SUM(e.total_claim_cost)) AS total_cost FROM fact_encounter e JOIN dim_date d USING (date_key) GROUP BY 1 ORDER BY 1 DESC LIMIT 10;">Cost per year</button>
+      <span id="sql-status">Loading DuckDB…</span>
+    </div>
+    <div class="scroll"><table id="sql-result"></table></div>
+  </section>
+  <footer>Synthetic data only, no real patients. Built with PySpark, LocalStack (S3, Lambda), DuckDB and DuckDB-WASM.</footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

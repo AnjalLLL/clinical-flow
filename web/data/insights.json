@@ -1,0 +1,221 @@
+{
+ "cost_per_encounter": [
+  {
+   "encounter_class": "inpatient",
+   "encounters": 5,
+   "avg_claim_cost": 11001.6,
+   "avg_patient_cost": 3067.21,
+   "avg_duration_min": 1464.0
+  },
+  {
+   "encounter_class": "snf",
+   "encounters": 3,
+   "avg_claim_cost": 9270.5,
+   "avg_patient_cost": 3858.44,
+   "avg_duration_min": 15375.0
+  },
+  {
+   "encounter_class": "ambulatory",
+   "encounters": 366,
+   "avg_claim_cost": 5868.89,
+   "avg_patient_cost": 2116.15,
+   "avg_duration_min": 64.9
+  },
+  {
+   "encounter_class": "hospice",
+   "encounters": 1,
+   "avg_claim_cost": 5314.33,
+   "avg_patient_cost": 1062.87,
+   "avg_duration_min": 10560.0
+  },
+  {
+   "encounter_class": "emergency",
+   "encounters": 20,
+   "avg_claim_cost": 5263.95,
+   "avg_patient_cost": 1283.28,
+   "avg_duration_min": 71.0
+  },
+  {
+   "encounter_class": "outpatient",
+   "encounters": 66,
+   "avg_claim_cost": 824.16,
+   "avg_patient_cost": 547.96,
+   "avg_duration_min": 23.9
+  },
+  {
+   "encounter_class": "wellness",
+   "encounters": 166,
+   "avg_claim_cost": 738.31,
+   "avg_patient_cost": 525.33,
+   "avg_duration_min": 33.3
+  },
+  {
+   "encounter_class": "urgentcare",
+   "encounters": 7,
+   "avg_claim_cost": 620.23,
+   "avg_patient_cost": 221.8,
+   "avg_duration_min": 29.5
+  },
+  {
+   "encounter_class": "virtual",
+   "encounters": 1,
+   "avg_claim_cost": 143.1,
+   "avg_patient_cost": 42.93,
+   "avg_duration_min": 60.0
+  }
+ ],
+ "med_trends": [
+  {
+   "year": 2022,
+   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
+   "prescriptions": 4,
+   "total_cost": 519.76
+  },
+  {
+   "year": 2022,
+   "description": "Simvastatin 10 MG Oral Tablet",
+   "prescriptions": 2,
+   "total_cost": 9.0
+  },
+  {
+   "year": 2022,
+   "description": "Acetaminophen 325 MG Oral Tablet",
+   "prescriptions": 2,
+   "total_cost": 145.21
+  },
+  {
+   "year": 2022,
+   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
+   "prescriptions": 1,
+   "total_cost": 1.8
+  },
+  {
+   "year": 2023,
+   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
+   "prescriptions": 4,
+   "total_cost": 519.76
+  },
+  {
+   "year": 2023,
+   "description": "Simvastatin 10 MG Oral Tablet",
+   "prescriptions": 2,
+   "total_cost": 9.0
+  },
+  {
+   "year": 2023,
+   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
+   "prescriptions": 1,
+   "total_cost": 1.8
+  },
+  {
+   "year": 2023,
+   "description": "{7 (ethinyl estradiol 0.01 MG Oral Tablet) / 84 (ethinyl estradiol 0.03 MG / levonorgestrel 0.15 MG Oral Tablet) } Pack [Seasonique]",
+   "prescriptions": 1,
+   "total_cost": 5018.28
+  },
+  {
+   "year": 2023,
+   "description": "Acetaminophen 325 MG Oral Tablet",
+   "prescriptions": 1,
+   "total_cost": 60.3
+  },
+  {
+   "year": 2024,
+   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
+   "prescriptions": 3,
+   "total_cost": 389.82
+  },
+  {
+   "year": 2024,
+   "description": "Simvastatin 10 MG Oral Tablet",
+   "prescriptions": 2,
+   "total_cost": 7.2
+  },
+  {
+   "year": 2024,
+   "description": "Acetaminophen 325 MG Oral Tablet",
+   "prescriptions": 1,
+   "total_cost": 45.86
+  },
+  {
+   "year": 2024,
+   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
+   "prescriptions": 1,
+   "total_cost": 0.9
+  },
+  {
+   "year": 2025,
+   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
+   "prescriptions": 3,
+   "total_cost": 4.58
+  },
+  {
+   "year": 2025,
+   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
+   "prescriptions": 2,
+   "total_cost": 259.88
+  },
+  {
+   "year": 2025,
+   "description": "Simvastatin 10 MG Oral Tablet",
+   "prescriptions": 2,
+   "total_cost": 10.8
+  },
+  {
+   "year": 2025,
+   "description": "Acetaminophen 325 MG Oral Tablet",
+   "prescriptions": 1,
+   "total_cost": 45.86
+  },
+  {
+   "year": 2026,
+   "description": "Acetaminophen 325 MG Oral Tablet",
+   "prescriptions": 4,
+   "total_cost": 440.24
+  },
+  {
+   "year": 2026,
+   "description": "sodium fluoride 0.0272 MG/MG Oral Gel",
+   "prescriptions": 4,
+   "total_cost": 519.76
+  },
+  {
+   "year": 2026,
+   "description": "Simvastatin 10 MG Oral Tablet",
+   "prescriptions": 3,
+   "total_cost": 15.3
+  },
+  {
+   "year": 2026,
+   "description": "Hydrochlorothiazide 25 MG Oral Tablet",
+   "prescriptions": 2,
+   "total_cost": 1.36
+  }
+ ],
+ "readmission_30d": [
+  {
+   "reason": "Sterilization requested (situation)",
+   "inpatient_stays": 2,
+   "readmissions": 0,
+   "readmission_rate_pct": 0.0
+  },
+  {
+   "reason": "Acute ST segment elevation myocardial infarction (disorder)",
+   "inpatient_stays": 1,
+   "readmissions": 0,
+   "readmission_rate_pct": 0.0
+  },
+  {
+   "reason": "Sleep disorder (disorder)",
+   "inpatient_stays": 1,
+   "readmissions": 0,
+   "readmission_rate_pct": 0.0
+  },
+  {
+   "reason": "Tubal pregnancy (disorder)",
+   "inpatient_stays": 1,
+   "readmissions": 0,
+   "readmission_rate_pct": 0.0
+  }
+ ]
+}
