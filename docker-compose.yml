@@ -1,0 +1,9 @@
+services:
+  localstack:
+    image: localstack/localstack:4.4
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3,lambda,logs
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # LocalStack runs each Lambda in its own container

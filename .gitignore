@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+data/raw/
+lake/
+warehouse.duckdb
+spark-warehouse/
+metastore_db/
+derby.log
+.env
+.DS_Store
+# personal interview study material, not part of the project
+docs/guide/
+docs/interview/
