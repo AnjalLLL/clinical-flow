@@ -1,5 +1,7 @@
 # ClinicalFlow
 
+**Live dashboard:** https://clinical-flow.ghimireanjal.com.np/ (charts, data quality results, and SQL you can run in the browser)
+
 An end-to-end healthcare data pipeline on synthetic patient records. Raw CSVs land in S3, PySpark cleans
 and models them through bronze → silver → gold layers, data quality checks gate every load, and a DuckDB
 warehouse answers clinical analytics questions in SQL. Everything runs locally for $0: AWS services are
@@ -86,6 +88,6 @@ Phase 1
 - [x] S3-triggered Lambda that validates uploads before processing (manifest or quarantine, logs to CloudWatch)
 - [x] [Performance notes](docs/performance.md): parquet vs CSV, partition pruning, broadcast joins
 - [x] Static dashboard with in-browser SQL (DuckDB-WASM) in `web/`
-- [ ] Deploy the dashboard on Vercel
+- [x] Dashboard deployed on Vercel: https://clinical-flow.ghimireanjal.com.np/
 
 Phase 2: Step Functions orchestration, Airflow DAG, Terraform, Java parity validator, Snowflake/Snowpark.
